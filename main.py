@@ -39,7 +39,7 @@ async def delete(user, message):
     except Exception as e:
        print(str(e))
 
-@User.on_message(filters.regex("!start") & filters.private)
+@User.on_message(filters.regex("start") & filters.private)
 async def start(user, message):
     await message.reply("Hi, I'm alive!")
 
