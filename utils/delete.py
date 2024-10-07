@@ -34,7 +34,11 @@ async def check_up(bot):
     for data in all_data:
         try:
            await bot.delete_messages(chat_id=data["chat_id"],
-                               message_ids=data["message_id"])           
+                               message_ids=data["message_id"])
+        except FloodWait as e:
+          print(f"Rate limit hit. Sleeping for {e.x} seconds.")
+          await asyncio.sleep(e.x) 
+          await bot.delete_messages(chat_id=data["chat_id"], message_ids=data["message_id"])
         except Exception as e:
            err=data
            err["Error"]=str(e)
