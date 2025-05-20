@@ -36,4 +36,12 @@ def get_all_data(time):
 
 def delete_all_data(all_data):
     for data in all_data:
-        col.delete_one(data)
+        # col.delete_one(data)
+        ids = {
+            "chat_id": data["chat_id"],
+            "message_id": data["message_id"]
+            "time": data["time"]
+        }
+        prin(ids)
+        if ids:
+            col.delete_one(ids)
