@@ -39,7 +39,7 @@ def delete_all_data(all_data):
         # col.delete_one(data)
         ids = {
             "chat_id": data["chat_id"],
-            "message_id": data["message_id"]
+            "message_id": data["message_id"],
             "time": data["time"]
         }
         prin(ids)
