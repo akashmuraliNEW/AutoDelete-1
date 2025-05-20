@@ -42,6 +42,6 @@ def delete_all_data(all_data):
             "message_id": data["message_id"],
             "time": data["time"]
         }
-        prin(ids)
+        print(ids)
         if ids:
             col.delete_one(ids)
