@@ -47,4 +47,9 @@ async def start(user, message):
 
 Popen(f"gunicorn utils.server:app --bind 0.0.0.0:{PORT}", shell=True)
 Popen("python3 -m utils.delete", shell=True)
-User.run()
+while True:
+    try:
+        User.run()
+    except Exception as e:
+        print("Bot crashed. Restarting...", e)
+        time.sleep(5)
