@@ -16,7 +16,7 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #=========================================================================
 
-from time import time 
+from time import time as t
 from utils.info import *
 from utils.database import *
 from subprocess import Popen
@@ -34,8 +34,8 @@ async def delete(user, message):
        if bool(BLACK_LIST):
           if message.from_user.id not in BLACK_LIST:
              return
-       _time = int(time()) + TIME 
-       save_message(message, _time)
+       _time_val = int(time()) + TIME 
+       save_message(message, _time_val)
     except Exception as e:
        print(str(e))
 
